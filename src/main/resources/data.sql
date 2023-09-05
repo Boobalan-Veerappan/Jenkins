@@ -1,0 +1,39 @@
+CREATE TABLE BOOK
+(
+    ID          MEDIUMINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+    NAME        VARCHAR(250),
+    DESCRIPTION VARCHAR(250),
+    AUTHOR      VARCHAR(250),
+    constraint PK_BOOK
+        primary key(ID)
+);
+INSERT INTO BOOK(NAME, DESCRIPTION, AUTHOR) VALUES ('Electrical Motor','This Book is Good ','Faraday');
+INSERT INTO BOOK( NAME, DESCRIPTION, AUTHOR) VALUES ('C PROGRAMING Language','This Book is Good ','David Willam');
+INSERT INTO BOOK(NAME, DESCRIPTION, AUTHOR) VALUES ('Java PROGRAMING Language','This Book is Good ','Perriya Swamy');
+
+
+CREATE TABLE USERDETAILS
+(
+    ID       MEDIUMINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+    NAME     VARCHAR(255),
+    EMAIL    VARCHAR(255),
+    constraint PK_USER
+     primary key(ID)
+
+);
+
+INSERT INTO USERDETAILS(NAME, EMAIL) VALUES ('RATAN TATA','ratanTata@gmail.com');
+INSERT INTO USERDETAILS( NAME, EMAIL) VALUES ('Modi','modi@gmail.com');
+INSERT INTO USERDETAILS(NAME, EMAIL) VALUES ('India','india@gmail.com');
+
+CREATE TABLE USER_BOOK_INTEGRATION (
+USER_ID MEDIUMINT NOT NULL,
+BOOK_ID MEDIUMINT NOT NULL,
+constraint PK_BOOK_TECHNOLOGY
+primary key (USER_ID,BOOK_ID),
+constraint FK_USER
+  foreign key (USER_ID) references USERDETAILS(ID),
+constraint FK_BOOK
+ foreign key (BOOK_ID) references BOOK(ID)
+
+);
