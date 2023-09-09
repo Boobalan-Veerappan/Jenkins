@@ -17,11 +17,12 @@ plugins {
 
 }
 jar {
-	enabled = false
+	enabled = true
 	archiveClassifier = ''
 }
+jar.archiveFileName = "AllInOne.jar"
 group = 'com.allinone'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 
 apply plugin: 'com.google.cloud.tools.appengine'
 java {
